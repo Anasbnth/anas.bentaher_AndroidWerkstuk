@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "787163010280",
+    "project_id": "android-werkstuk",
+    "storage_bucket": "android-werkstuk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787163010280:android:e92a4790bdcbe83155a55d",
+        "android_client_info": {
+          "package_name": "com.example.androidwerkstuk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787163010280-411br3mtp4ed7s0peshq58k3p9tsefa4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSxS15-Qa346EGWQ5OvRLOREsaW5xp6uI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787163010280-411br3mtp4ed7s0peshq58k3p9tsefa4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

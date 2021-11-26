@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:background="@drawable/event"
+        android:fontFamily="cursive"
+        android:paddingTop="110dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#dfc15e"
+        android:textSize="40sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="30dp"
+
+
+        android:textColor="#dfc15e"
+        />
+
+    <EditText
+        android:id="@+id/textfield_email_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#dfc15e"
+        />
+
+    <EditText
+        android:id="@+id/textfield_password_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:backgroundTint="#dfc15e"
+        android:layout_marginHorizontal="30dp"/>
+
+    <Button
+        android:id="@+id/button_goToRegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#dfc15e"
+        android:text="Create Account"
+        android:layout_marginHorizontal="30dp"/>
+
+</LinearLayout>
+</ScrollView>

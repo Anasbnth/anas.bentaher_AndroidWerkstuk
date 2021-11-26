@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="My Profile"
+        android:textAlignment="center"
+        android:textColor="#dfc15e"
+
+
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#dfc15e"
+        />
+
+    <EditText
+        android:id="@+id/textfield_username_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#dfc15e"
+        />
+
+    <EditText
+        android:id="@+id/textfield_email_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:focusable="false"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:textColor="#bfbfbf"
+
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#dfc15e"
+        />
+
+    <EditText
+        android:id="@+id/textfield_name_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:inputType="text"
+        />
+
+
+
+    <Button
+        android:id="@+id/button_update_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:backgroundTint="#dfc15e"
+        android:layout_marginHorizontal="30dp"/>
+
+
+</LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidWerkstuk</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="tab_text_1">Joined Events</string>
+    <string name="tab_text_2">Created Events</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiYW5hc2JudGgiLCJhIjoiY2t3ZG8zbDVjMG1hcjJudDN0ZndpZnp6YiJ9.pP6V8hKcLUc3gBiSL9MGog</string>
+</resources>

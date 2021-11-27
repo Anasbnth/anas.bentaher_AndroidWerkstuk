@@ -10,7 +10,12 @@ interface EventDao {
     fun getAllEvents(): LiveData<List<Event>>
 
     @Insert()
-    suspend fun insert(event: Event)
+    suspend fun insertEvent(event: Event)
+
+    @Insert()
+    suspend fun insertEventwithUsersSubscribed(ref : SubscribedUserEventRelation)
+
+
 
     @Update
     suspend fun updateEvent(event: Event)

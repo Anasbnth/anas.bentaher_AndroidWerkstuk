@@ -5,15 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidwerkstuk.LoginActivity
 import com.example.androidwerkstuk.R
-import com.example.androidwerkstuk.View_SubscribedEvent_Activity
+import com.example.androidwerkstuk.ViewEventActivity
 import com.example.androidwerkstuk.adapter.ListAdapter
 import com.example.androidwerkstuk.viewmodel.EventViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -22,6 +21,7 @@ class CreatedEventsFragment : Fragment(),ListAdapter.onItemClickListener {
 
     private lateinit var eventViewModel: EventViewModel
     private lateinit var auth: FirebaseAuth
+    private lateinit var adapter: ListAdapter
 
 
     override fun onCreateView(
@@ -31,7 +31,8 @@ class CreatedEventsFragment : Fragment(),ListAdapter.onItemClickListener {
     ): View? {
         auth = FirebaseAuth.getInstance();
 
-        val adapter = ListAdapter(this)
+        adapter = ListAdapter(this)
+
         val view = inflater.inflate(R.layout.fragment_createdevents_list,container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.adapter = adapter
@@ -46,6 +47,13 @@ class CreatedEventsFragment : Fragment(),ListAdapter.onItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        TODO("Not yet implemented")
+        val intent = Intent(this.activity,ViewEventActivity::class.java)
+        intent.putExtra("eventID",adapter.eventsList[position].eventId)
+        intent.putExtra("title",adapter.eventsList[position].title)
+        intent.putExtra("description",adapter.eventsList[position].description)
+        intent.putExtra("beginDate",adapter.eventsList[position].beginDate)
+        intent.putExtra("endDate",adapter.eventsList[position].endDate)
+        intent.putExtra("emailCreator",adapter.eventsList[position].emailCreator)
+        this.activity?.startActivity(intent)
     }
 }

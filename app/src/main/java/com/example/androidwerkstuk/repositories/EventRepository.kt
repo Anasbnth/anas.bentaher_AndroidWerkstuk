@@ -3,9 +3,9 @@ package com.example.androidwerkstuk.repositories
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.example.androidwerkstuk.dao.EventDao
-import com.example.androidwerkstuk.dao.UserDao
 import com.example.androidwerkstuk.entities.Event
-import com.example.androidwerkstuk.entities.User
+import com.example.androidwerkstuk.entities.EventwithUsersSubscribed
+import com.example.androidwerkstuk.entities.SubscribedUserEventRelation
 
 class EventRepository(private val eventDao: EventDao) {
     // Room executes all queries on a separate thread.
@@ -22,9 +22,11 @@ class EventRepository(private val eventDao: EventDao) {
         return eventDao.getEventsByTitel(title)
     }
 
+
+
     suspend fun addEvent(event: Event)
     {
-        eventDao.insert(event)
+        eventDao.insertEvent(event)
     }
 
     suspend fun updateEvent(event: Event){
@@ -38,6 +40,12 @@ class EventRepository(private val eventDao: EventDao) {
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(event: Event) {
-        eventDao.insert(event)
+        eventDao.insertEvent(event)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun insertEventWithUsersSubscribed(ref : SubscribedUserEventRelation) {
+        eventDao.insertEventwithUsersSubscribed(ref)
     }
 }

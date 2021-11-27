@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.androidwerkstuk.db.RoomDB
 import com.example.androidwerkstuk.entities.Event
+import com.example.androidwerkstuk.entities.EventwithUsersSubscribed
+import com.example.androidwerkstuk.entities.SubscribedUserEventRelation
 import com.example.androidwerkstuk.entities.User
 import com.example.androidwerkstuk.repositories.EventRepository
 import com.example.androidwerkstuk.repositories.UserRepository
@@ -35,6 +37,10 @@ class EventViewModel(application: Application) : AndroidViewModel(application) {
      */
     fun addEvent(event: Event) = viewModelScope.launch {
         repository.insert(event)
+    }
+
+    fun addEventWithUsersSubscribed(ref : SubscribedUserEventRelation) = viewModelScope.launch {
+        repository.insertEventWithUsersSubscribed(ref)
     }
 
     fun updateEvent(event: Event) = viewModelScope.launch {

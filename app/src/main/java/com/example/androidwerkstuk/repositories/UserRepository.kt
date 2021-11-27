@@ -4,6 +4,8 @@ import androidx.annotation.WorkerThread
 import com.example.androidwerkstuk.entities.User
 import androidx.lifecycle.LiveData
 import com.example.androidwerkstuk.dao.UserDao
+import com.example.androidwerkstuk.entities.Event
+import com.example.androidwerkstuk.entities.UserWithEventsOnSubscribed
 
 
 class UserRepository(private val userDao: UserDao) {
@@ -16,9 +18,13 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.getUserByEmail(email)
     }
 
+    fun userWithSubscribedEvents(): List<UserWithEventsOnSubscribed> {
+        return userDao.userWithEventsOnSubscribed()
+    }
+
     suspend fun addUser(user : User)
     {
-        userDao.insert(user)
+        userDao.insertUser(user)
     }
 
     suspend fun updateUser(user: User){
@@ -32,6 +38,6 @@ class UserRepository(private val userDao: UserDao) {
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(user: User) {
-        userDao.insert(user)
+        userDao.insertUser(user)
     }
 }

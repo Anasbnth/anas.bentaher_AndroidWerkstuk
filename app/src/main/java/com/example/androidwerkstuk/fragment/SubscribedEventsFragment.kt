@@ -8,13 +8,22 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.androidwerkstuk.R
-import com.example.androidwerkstuk.View_SubscribedEvent_Activity
+import com.example.androidwerkstuk.ViewEventActivity
+import com.example.androidwerkstuk.adapter.ListAdapter
+import com.example.androidwerkstuk.viewmodel.EventViewModel
+import com.example.androidwerkstuk.viewmodel.UserViewModel
+import com.google.firebase.auth.FirebaseAuth
 
-class SubscribedEventsFragment : Fragment() {
+class SubscribedEventsFragment : Fragment(), ListAdapter.onItemClickListener {
 
+    private lateinit var userViewModel: UserViewModel
     lateinit var listView : ListView
-    lateinit var adapter: ArrayAdapter<*>
+    private lateinit var adapter: ListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,23 +31,23 @@ class SubscribedEventsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val fragmentView: View = inflater.inflate(R.layout.fragment_subscribedevents_list,container, false)
-        listView = fragmentView.findViewById<ListView>(R.id.ListView_SubscribedEvent)
+        val view: View = inflater.inflate(R.layout.fragment_subscribedevents_list,container, false)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewEventsSubsribed)
+
+        adapter = ListAdapter(this)
+
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
 
-        val values : List<String> = listOf("a","da","bh")
-
-        adapter = ArrayAdapter(this.requireContext(),android.R.layout.simple_list_item_1,android.R.id.text1,values)
-
-        listView.adapter = adapter
-
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val element = adapter.getItem(position) // The item that was clicked
-            val intent = Intent(this.context, View_SubscribedEvent_Activity::class.java)
-            startActivity(intent)
-        }
 
 
-        return fragmentView
+        return view
+    }
+
+    override fun onItemClick(position: Int) {
+
     }
 }

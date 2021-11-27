@@ -15,7 +15,10 @@ interface UserDao {
     fun getAllUsers(): LiveData<List<User>>
 
     @Insert()
-    suspend fun insert(user: User)
+    suspend fun insertUser(user: User)
+
+    @Insert()
+    suspend fun insertUserWithEventsOnSubscribed(ref : List<SubscribedUserEventRelation>)
 
     @Update
     suspend fun updateUser(user: User)

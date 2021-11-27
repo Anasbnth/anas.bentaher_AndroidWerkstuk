@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.androidwerkstuk.db.RoomDB
 import com.example.androidwerkstuk.entities.User
+import com.example.androidwerkstuk.entities.UserWithEventsOnSubscribed
 import com.example.androidwerkstuk.repositories.UserRepository
 import kotlinx.coroutines.launch
 
@@ -36,6 +37,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getUserByEmail(email: String) : LiveData<User?>? {
         return repository.getUserByEmail(email)
+    }
+
+    fun userWithSubscribedEvents(): List<UserWithEventsOnSubscribed> {
+        return repository.userWithSubscribedEvents()
     }
 
 

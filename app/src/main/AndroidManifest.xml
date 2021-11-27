@@ -19,7 +19,7 @@
             android:name=".CreateNewEventActivity"
             android:exported="true" />
         <activity
-            android:name=".View_CreatedEvent_Activity"
+            android:name=".ViewEventActivity"
             android:exported="true" />
         <activity
             android:name=".View_SubscribedEvent_Activity"

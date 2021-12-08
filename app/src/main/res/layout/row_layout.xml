@@ -33,11 +33,12 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/idIVCourseImage"
-        android:text="title"
+        android:text="@string/title"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-         />
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/idIVCourseImage" />
 
 
         <TextView
@@ -49,8 +50,9 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/idIVCourseImage"
             android:drawablePadding="2dp"
-            android:text="Description"
-             />
+            android:text="@string/description"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/idIVCourseImage" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,7 +62,9 @@
             android:layout_marginTop="10dp"
             android:drawablePadding="2dp"
             android:layout_below="@id/textfield_description_row"
-            android:layout_toEndOf="@id/idIVCourseImage">
+            android:layout_toEndOf="@id/idIVCourseImage"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/idIVCourseImage">
 
         <TextView
             android:id="@+id/textfield_beginDate_row"
@@ -68,14 +72,15 @@
             android:layout_height="wrap_content"
 
             android:drawablePadding="2dp"
-            android:text="Begindate" />
+            android:text="@string/beginDate" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:drawablePadding="2dp"
-                android:text="-" />
+                android:text="-"
+                android:layout_marginLeft="10dp" />
 
 
         <TextView
@@ -83,9 +88,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Enddate"
+            android:text="@string/endDate"
 
-            />
+            android:layout_marginLeft="10dp" />
 
         </LinearLayout>
 

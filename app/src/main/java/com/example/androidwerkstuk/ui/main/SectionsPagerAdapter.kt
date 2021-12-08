@@ -11,10 +11,7 @@ import com.example.androidwerkstuk.fragment.ProfileFragment
 import com.example.androidwerkstuk.fragment.SearchEventFragment
 import com.example.androidwerkstuk.fragment.SubscribedEventsFragment
 
-private val TAB_TITLES = arrayOf(
-    R.string.tab_text_1,
-    R.string.tab_text_2
-)
+
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

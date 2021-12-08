@@ -18,8 +18,8 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.getUserByEmail(email)
     }
 
-    fun userWithSubscribedEvents(): List<UserWithEventsOnSubscribed> {
-        return userDao.userWithEventsOnSubscribed()
+    fun userWithSubscribedEvents(email : String): LiveData<List<UserWithEventsOnSubscribed>> {
+        return userDao.userWithEventsOnSubscribed(email)
     }
 
     suspend fun addUser(user : User)

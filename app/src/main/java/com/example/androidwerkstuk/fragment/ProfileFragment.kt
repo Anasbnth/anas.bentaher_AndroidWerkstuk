@@ -18,7 +18,12 @@ import com.example.androidwerkstuk.R
 import com.example.androidwerkstuk.viewmodel.UserViewModel
 import com.example.androidwerkstuk.entities.User
 import com.google.firebase.auth.FirebaseAuth
+import android.content.Intent.getIntent
 
+import android.content.Intent
+import com.example.androidwerkstuk.LoginActivity
+import com.example.androidwerkstuk.MainActivity
+import com.example.androidwerkstuk.UpdateEventActivity
 
 
 class ProfileFragment : Fragment() {
@@ -41,6 +46,7 @@ class ProfileFragment : Fragment() {
         val email = fragmentView.findViewById<EditText>(R.id.textfield_email_profile)
         val name = fragmentView.findViewById<EditText>(R.id.textfield_name_profile)
         val updateBtn = fragmentView.findViewById<Button>(R.id.button_update_profile)
+        val logout = fragmentView.findViewById<Button>(R.id.button_logout)
         email.setText(auth.currentUser!!.email)
 
 
@@ -56,7 +62,13 @@ class ProfileFragment : Fragment() {
         updateBtn.setOnClickListener {
             val user = User(email.text.toString(),username.text.toString(),name.text.toString())
             userViewModel.updateUser(user)
-            Toast.makeText(this.context,"User is updated succesfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.context,R.string.userUpdated, Toast.LENGTH_SHORT).show()
+        }
+
+        logout.setOnClickListener {
+            auth.signOut()
+            startActivity(Intent(this.activity, MainActivity::class.java))
+
         }
 
 

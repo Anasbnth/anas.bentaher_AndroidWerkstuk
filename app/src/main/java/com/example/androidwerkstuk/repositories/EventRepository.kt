@@ -6,6 +6,7 @@ import com.example.androidwerkstuk.dao.EventDao
 import com.example.androidwerkstuk.entities.Event
 import com.example.androidwerkstuk.entities.EventwithUsersSubscribed
 import com.example.androidwerkstuk.entities.SubscribedUserEventRelation
+import com.example.androidwerkstuk.entities.UserWithEventsOnSubscribed
 
 class EventRepository(private val eventDao: EventDao) {
     // Room executes all queries on a separate thread.
@@ -22,16 +23,12 @@ class EventRepository(private val eventDao: EventDao) {
         return eventDao.getEventsByTitel(title)
     }
 
-
-
-    suspend fun addEvent(event: Event)
-    {
-        eventDao.insertEvent(event)
+    fun EventWithUsersSubscribed(eventID : Long): LiveData<List<EventwithUsersSubscribed>> {
+        return eventDao.EventwithUsersSubscribed(eventID)
     }
 
-    suspend fun updateEvent(event: Event){
-        eventDao.updateEvent(event)
-    }
+
+
 
 
     // By default Room runs suspend queries off the main thread, therefore, we don't need to
@@ -48,4 +45,25 @@ class EventRepository(private val eventDao: EventDao) {
     suspend fun insertEventWithUsersSubscribed(ref : SubscribedUserEventRelation) {
         eventDao.insertEventwithUsersSubscribed(ref)
     }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun updateEvent(event: Event){
+        eventDao.updateEvent(event)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun delete(eventId: Long) {
+        eventDao.deleteEventById(eventId)
+    }
+
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun unsubscribeUserOnEvent(email: String,eventId: Long) {
+        eventDao.unsubscribeUserOnEvent(email,eventId)
+    }
+
+
 }

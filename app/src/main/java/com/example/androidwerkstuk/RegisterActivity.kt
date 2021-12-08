@@ -62,38 +62,38 @@ class RegisterActivity : AppCompatActivity()
         val confirmPassword = confirmPasswordField.text.toString()
 
         if(TextUtils.isEmpty(username)){
-            usernameField.setError("Email cannot be empty.")
+            usernameField.setError(R.string.username.toString() + " " + R.string.notEmpty + ".")
             usernameField.requestFocus()
             return
         }
 
         else if(TextUtils.isEmpty(email)){
-            emailField.setError("Email cannot be empty.")
+            emailField.setError("Email " + R.string.notEmpty + ".")
             emailField.requestFocus()
             return
         }
 
 
         else if(TextUtils.isEmpty(name)){
-            nameField.setError("Full name cannot be empty")
+            nameField.setError(R.string.name.toString() + " " + R.string.notEmpty + ".")
             nameField.requestFocus()
             return
         }
 
         else if(TextUtils.isEmpty(password)){
-            passwordField.setError("Password cannot be empty")
+            passwordField.setError(R.string.password.toString() + " " + R.string.notEmpty + ".")
             passwordField.requestFocus()
             return
         }
 
         else if(password.length < 6){
-            passwordField.setError("Password must be greater than 6 characters")
+            passwordField.setError(R.string.passwordGreater.toString())
             passwordField.requestFocus()
             return
         }
 
         else if(!(password.equals(confirmPassword))){
-            confirmPasswordField.setError("Passwords does not match")
+            confirmPasswordField.setError(R.string.passwordsNotMatch.toString())
             confirmPasswordField.requestFocus()
             return
         }
@@ -108,7 +108,7 @@ class RegisterActivity : AppCompatActivity()
                         val user = User(email,username,name)
                         userViewModel.addUser(user)
                         // Sign in success, update UI with the signed-in user's information
-                        Toast.makeText(this,"User is registered succesfully",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,R.string.userRegistered,Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this,LoginActivity::class.java))
                     } else {
                         Toast.makeText(this,"Registration Error: " + task.exception!!.message,Toast.LENGTH_SHORT).show()

@@ -9,12 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="Events Created"
+        android:text="@string/createdEvents"
         android:textAlignment="center"
         android:textColor="#dfc15e"
 
 
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:gravity="center_horizontal" />
 
 
 

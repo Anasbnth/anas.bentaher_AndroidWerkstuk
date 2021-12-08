@@ -20,6 +20,9 @@ interface EventDao {
     @Update
     suspend fun updateEvent(event: Event)
 
+    @Query("DELETE FROM events_table WHERE eventId = :eventId")
+    suspend fun deleteEventById(eventId: Long)
+
     @Query("DELETE FROM events_table")
     suspend fun deleteAll()
 
@@ -30,8 +33,15 @@ interface EventDao {
     fun getEventsByTitel(title: String): LiveData<List<Event>>
 
     @Transaction
-    @Query("SELECT * FROM events_table")
-    fun EventwithUsersSubscribed(): List<EventwithUsersSubscribed>
+    @Query("SELECT * FROM events_table WHERE eventId = :eventId")
+    fun EventwithUsersSubscribed(eventId: Long): LiveData<List<EventwithUsersSubscribed>>
+
+
+    @Transaction
+    @Query("DELETE FROM user_event_table WHERE eventId = :eventId AND email = :email ")
+    suspend fun unsubscribeUserOnEvent(email: String,eventId: Long)
+
+
 
 
 

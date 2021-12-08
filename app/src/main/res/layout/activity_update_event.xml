@@ -2,23 +2,21 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-
+    android:layout_height="fill_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ViewEventActivity">
+        tools:context=".UpdateEventActivity">
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:text="Event Details"
+            android:text="@string/updateEvent"
             android:textAlignment="center"
             android:textColor="#dfc15e"
 
@@ -35,13 +33,13 @@
             android:textColor="#dfc15e"
             />
 
-        <TextView
-            android:id="@+id/textfield_title_viewEvent"
+        <EditText
+            android:id="@+id/textfield_title_updateEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:inputType="text"
             android:layout_marginHorizontal="30dp"
-
+            android:layout_marginBottom="30dp"
             />
 
 
@@ -54,233 +52,138 @@
             android:textColor="#dfc15e"
             />
 
-
-        <TextView
-            android:id="@+id/textfield_description_viewEvent"
+        <EditText
+            android:id="@+id/textfield_description_updateEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:inputType="text"
             android:layout_marginHorizontal="30dp"
-
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/numberOfParticipants"
-            android:layout_marginTop="30dp"
-            android:layout_marginHorizontal="30dp"
-            android:textColor="#dfc15e"
+            android:layout_marginBottom="30dp"
             />
 
 
         <TextView
-            android:id="@+id/textfield_numberOfParticpants_viewEvent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:layout_marginTop="30dp"
-            android:layout_marginHorizontal="30dp"
-            android:textColor="#dfc15e"
-            />
-
-
-        <TextView
-            android:id="@+id/textfield_emailCreator_viewEvent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-
-            />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="30dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/beginDate"
+
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="30dp"
             android:textColor="#dfc15e"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" - "
-            android:textColor="#dfc15e"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/endDate"
-            android:textColor="#dfc15e"
-            />
-
-    </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/textfield_beginDate_updateEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:focusableInTouchMode="true"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:inputType="text"
             android:layout_marginHorizontal="30dp"
-           >
+            android:layout_marginBottom="30dp"
+            />
 
-            <TextView
-                android:id="@+id/textfield_beginDate_viewEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/endDate"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="30dp"
+            android:textColor="#dfc15e"
+            />
 
-
-                android:text="@string/beginDate" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-
-                android:text="-"
-                android:layout_marginLeft="10dp" />
-
-
-            <TextView
-                android:id="@+id/textfield_endDate_viewEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/endDate"
-
-                android:layout_marginLeft="10dp" />
-
-        </LinearLayout>
+        <EditText
+            android:id="@+id/textfield_endDate_updateEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:inputType="text"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="30dp"
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/street"
-            android:layout_marginTop="30dp"
+
             android:layout_marginHorizontal="30dp"
             android:textColor="#dfc15e"
             />
 
-
-        <TextView
-            android:id="@+id/textfield_street_viewEvent"
+        <EditText
+            android:id="@+id/textfield_street_updateEvent"
             android:layout_width="match_parent"
+            android:inputType="text"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-
+            android:layout_marginBottom="30dp"
             />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/houseNr"
-            android:layout_marginTop="30dp"
+
             android:layout_marginHorizontal="30dp"
             android:textColor="#dfc15e"
             />
 
-
-        <TextView
-            android:id="@+id/textfield_huisNr_viewEvent"
+        <EditText
+            android:id="@+id/textfield_huisNr_updateEvent"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
-
             android:layout_marginHorizontal="30dp"
-
+            android:layout_marginBottom="30dp"
             />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/city"
-            android:layout_marginTop="30dp"
+
             android:layout_marginHorizontal="30dp"
             android:textColor="#dfc15e"
             />
 
-
-        <TextView
-            android:id="@+id/textfield_city_viewEvent"
+        <EditText
+            android:id="@+id/textfield_city_updateEvent"
             android:layout_width="match_parent"
+            android:inputType="text"
             android:layout_height="wrap_content"
-
             android:layout_marginHorizontal="30dp"
-
+            android:layout_marginBottom="30dp"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/zipcode"
-            android:layout_marginTop="30dp"
+
             android:layout_marginHorizontal="30dp"
             android:textColor="#dfc15e"
             />
 
-
-        <TextView
-            android:id="@+id/textfield_zipcode_viewEvent"
+        <EditText
+            android:id="@+id/textfield_zipcode_updateEvent"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
-
             android:layout_marginHorizontal="30dp"
-
+            android:layout_marginBottom="30dp"
             />
 
 
 
         <Button
-            android:id="@+id/button_subscribeOrUnsubscribe_viewEvent"
+            android:id="@+id/button_updateBtn_updateEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:backgroundTint="#dfc15e"
-            android:text="@string/subscribe"  />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginBottom="20dp"
-            >
-
-            <Button
-                android:id="@+id/button_update_viewEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:backgroundTint="#dfc15e"
-                android:visibility="invisible"
-                android:text="@string/update"  />
-
-            <Button
-                android:id="@+id/button_delete_viewEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-
-                android:backgroundTint="#dfc15e"
-                android:text="@string/delete"  />
-
-
-
-        </LinearLayout>
-
-
+            android:text="@string/update"  />
 
 
     </LinearLayout>

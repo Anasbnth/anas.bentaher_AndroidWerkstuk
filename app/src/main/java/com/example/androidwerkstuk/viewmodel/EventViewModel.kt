@@ -32,6 +32,11 @@ class EventViewModel(application: Application) : AndroidViewModel(application) {
         return repository.eventsByTitel(title)
     }
 
+
+    fun EventWithUsersSubscribed(eventID : Long): LiveData<List<EventwithUsersSubscribed>> {
+        return repository.EventWithUsersSubscribed(eventID)
+    }
+
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
@@ -46,4 +51,15 @@ class EventViewModel(application: Application) : AndroidViewModel(application) {
     fun updateEvent(event: Event) = viewModelScope.launch {
         repository.updateEvent(event)
     }
+
+    fun deleteEvent(eventId: Long) = viewModelScope.launch {
+        repository.delete(eventId)
+    }
+
+
+    fun unsubscribeUserOnEvent(email: String,eventId: Long) = viewModelScope.launch {
+        repository.unsubscribeUserOnEvent(email,eventId)
+    }
+
+
 }

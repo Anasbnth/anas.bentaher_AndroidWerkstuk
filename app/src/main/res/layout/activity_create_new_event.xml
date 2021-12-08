@@ -15,17 +15,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="10dp"
-                android:text="Create new event"
+                android:text="@string/createEvent"
                 android:textAlignment="center"
                 android:textColor="#dfc15e"
 
 
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:text="@string/title"
                 android:layout_marginTop="50dp"
                 android:layout_marginHorizontal="30dp"
                 android:textColor="#dfc15e"
@@ -43,7 +44,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Description"
+                android:text="@string/description"
 
                 android:layout_marginHorizontal="30dp"
                 android:textColor="#dfc15e"
@@ -52,6 +53,7 @@
             <EditText
                 android:id="@+id/textfield_beschrijving_createEvent"
                 android:layout_width="match_parent"
+                android:inputType="text"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginBottom="30dp"
@@ -60,7 +62,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Begin Datetime"
+                android:text="@string/beginDate"
                 android:layout_marginHorizontal="30dp"
                 android:textColor="#dfc15e"
                 />
@@ -69,15 +71,18 @@
                 android:id="@+id/textfield_beginDate_createEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:cursorVisible="false"
+                android:focusable="false"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginBottom="30dp"
-                android:inputType="datetime"
+
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="End Datetime"
+                android:text="@string/endDate"
                 android:layout_marginHorizontal="30dp"
                 android:textColor="#dfc15e"
                 />
@@ -86,18 +91,88 @@
                 android:id="@+id/textfield_endDate_createEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:cursorVisible="false"
+                android:focusable="false"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginBottom="30dp"
-                android:inputType="datetime"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/street"
+
+                android:layout_marginHorizontal="30dp"
+                android:textColor="#dfc15e"
                 />
 
+            <EditText
+                android:id="@+id/textfield_street_createEvent"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/houseNr"
 
+                android:layout_marginHorizontal="30dp"
+                android:textColor="#dfc15e"
+                />
+
+            <EditText
+                android:id="@+id/textfield_huisNr_createEvent"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="30dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/city"
+
+                android:layout_marginHorizontal="30dp"
+                android:textColor="#dfc15e"
+                />
+
+            <EditText
+                android:id="@+id/textfield_city_createEvent"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="30dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/zipcode"
+
+                android:layout_marginHorizontal="30dp"
+                android:textColor="#dfc15e"
+                />
+
+            <EditText
+                android:id="@+id/textfield_zipcode_createEvent"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="30dp"
+                />
 
             <Button
                 android:id="@+id/button_createNewEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit"
+                android:text="@string/submit"
                 android:backgroundTint="#dfc15e"
                 android:layout_marginHorizontal="30dp"/>
 

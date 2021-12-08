@@ -53,6 +53,10 @@ class CreatedEventsFragment : Fragment(),ListAdapter.onItemClickListener {
         intent.putExtra("description",adapter.eventsList[position].description)
         intent.putExtra("beginDate",adapter.eventsList[position].beginDate)
         intent.putExtra("endDate",adapter.eventsList[position].endDate)
+        intent.putExtra("street",adapter.eventsList[position].street)
+        intent.putExtra("huisNr",adapter.eventsList[position].huisNr)
+        intent.putExtra("city",adapter.eventsList[position].city)
+        intent.putExtra("zipcode",adapter.eventsList[position].zipCode)
         intent.putExtra("emailCreator",adapter.eventsList[position].emailCreator)
         this.activity?.startActivity(intent)
     }

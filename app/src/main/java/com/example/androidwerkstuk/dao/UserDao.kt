@@ -1,5 +1,6 @@
 package com.example.androidwerkstuk.dao
 
+import android.os.FileObserver.DELETE
 import com.example.androidwerkstuk.entities.User
 import kotlinx.coroutines.flow.Flow
 import androidx.lifecycle.LiveData
@@ -20,11 +21,14 @@ interface UserDao {
     @Insert()
     suspend fun insertUserWithEventsOnSubscribed(ref : List<SubscribedUserEventRelation>)
 
+
     @Update
     suspend fun updateUser(user: User)
 
     @Query("SELECT * FROM USER_TABLE WHERE email = :email")
     fun getUserByEmail(email: String): LiveData<User?>?
+
+
 
     @Query("DELETE FROM user_table")
     suspend fun deleteAll()
@@ -32,8 +36,8 @@ interface UserDao {
 
 
     @Transaction
-    @Query("SELECT * FROM user_table")
-    fun userWithEventsOnSubscribed(): List<UserWithEventsOnSubscribed>
+    @Query("SELECT * FROM user_table WHERE email = :email")
+    fun userWithEventsOnSubscribed(email : String): LiveData<List<UserWithEventsOnSubscribed>>
 
 
 

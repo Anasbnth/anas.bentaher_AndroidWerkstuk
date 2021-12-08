@@ -1,5 +1,6 @@
 package com.example.androidwerkstuk.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidwerkstuk.R
+import com.example.androidwerkstuk.ViewEventActivity
 import com.example.androidwerkstuk.adapter.ListAdapter
 import com.example.androidwerkstuk.entities.Event
 import com.example.androidwerkstuk.entities.User
@@ -69,7 +71,17 @@ class SearchEventFragment : Fragment(),ListAdapter.onItemClickListener{
 
     override fun onItemClick(position: Int) {
 
-        val currentItem : Event = adapter.eventsList[position]
-        Toast.makeText(this.context,"Item ${currentItem.title} clicked",Toast.LENGTH_SHORT).show()
+        val intent = Intent(this.activity, ViewEventActivity::class.java)
+        intent.putExtra("eventID",adapter.eventsList[position].eventId)
+        intent.putExtra("title",adapter.eventsList[position].title)
+        intent.putExtra("description",adapter.eventsList[position].description)
+        intent.putExtra("beginDate",adapter.eventsList[position].beginDate)
+        intent.putExtra("endDate",adapter.eventsList[position].endDate)
+        intent.putExtra("street",adapter.eventsList[position].street)
+        intent.putExtra("huisNr",adapter.eventsList[position].huisNr)
+        intent.putExtra("city",adapter.eventsList[position].city)
+        intent.putExtra("zipcode",adapter.eventsList[position].zipCode)
+        intent.putExtra("emailCreator",adapter.eventsList[position].emailCreator)
+        this.activity?.startActivity(intent)
     }
 }

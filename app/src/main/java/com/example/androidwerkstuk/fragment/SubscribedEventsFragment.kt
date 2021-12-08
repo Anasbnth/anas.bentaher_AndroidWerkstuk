@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 class SubscribedEventsFragment : Fragment(), ListAdapter.onItemClickListener {
 
     private lateinit var userViewModel: UserViewModel
-    lateinit var listView : ListView
+    private lateinit var auth: FirebaseAuth
     private lateinit var adapter: ListAdapter
 
     override fun onCreateView(
@@ -34,12 +34,21 @@ class SubscribedEventsFragment : Fragment(), ListAdapter.onItemClickListener {
         val view: View = inflater.inflate(R.layout.fragment_subscribedevents_list,container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewEventsSubsribed)
 
+        auth = FirebaseAuth.getInstance();
         adapter = ListAdapter(this)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        if(auth.currentUser != null)
+        {
+            userViewModel.userWithSubscribedEvents(auth.currentUser!!.email!!).observe(viewLifecycleOwner, Observer {
+                    list -> adapter.setData(list.get(0).events)
+
+            })
+        }
+
 
 
 
@@ -48,6 +57,18 @@ class SubscribedEventsFragment : Fragment(), ListAdapter.onItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
+        val intent = Intent(this.activity,ViewEventActivity::class.java)
+        intent.putExtra("eventID",adapter.eventsList[position].eventId)
+        intent.putExtra("title",adapter.eventsList[position].title)
+        intent.putExtra("description",adapter.eventsList[position].description)
+        intent.putExtra("beginDate",adapter.eventsList[position].beginDate)
+        intent.putExtra("endDate",adapter.eventsList[position].endDate)
+        intent.putExtra("street",adapter.eventsList[position].street)
+        intent.putExtra("huisNr",adapter.eventsList[position].huisNr)
+        intent.putExtra("city",adapter.eventsList[position].city)
+        intent.putExtra("zipcode",adapter.eventsList[position].zipCode)
+        intent.putExtra("emailCreator",adapter.eventsList[position].emailCreator)
+        this.activity?.startActivity(intent)
 
     }
 }

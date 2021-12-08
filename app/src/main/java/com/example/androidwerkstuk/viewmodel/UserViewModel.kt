@@ -39,8 +39,8 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         return repository.getUserByEmail(email)
     }
 
-    fun userWithSubscribedEvents(): List<UserWithEventsOnSubscribed> {
-        return repository.userWithSubscribedEvents()
+    fun userWithSubscribedEvents(email : String): LiveData<List<UserWithEventsOnSubscribed>> {
+        return repository.userWithSubscribedEvents(email)
     }
 
 

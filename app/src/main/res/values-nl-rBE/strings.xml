@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidWerkstuk</string>
+    <string name="title">Titel</string>
+    <string name="name">Naam</string>
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wachtwoord</string>
+    <string name="confirmPassword">Bevestig Wachtwoord</string>
+    <string name="profile">Profiel</string>
+    <string name="register">Registreer</string>
+    <string name="Login">Aanmelden</string>
+    <string name="createdEvents">Aangemaakte Events</string>
+    <string name="subscribedEvents">Ingeschreven Events</string>
+    <string name="search">Zoek</string>
+    <string name="description">Beschrijving</string>
+    <string name="numberOfParticipants">Aantal deelnemers</string>
+    <string name="emailCreator">Email Aanmaker</string>
+    <string name="beginDate">Begin Datum</string>
+    <string name="endDate">Eind Datum</string>
+    <string name="street">Straat</string>
+    <string name="houseNr">HuisNr</string>
+    <string name="city">Stad</string>
+    <string name="zipcode">Postcode</string>
+    <string name="update">Wijzig</string>
+    <string name="updateEvent">Wijzig Event</string>
+    <string name="createEvent">Maak een Event</string>
+    <string name="alreadyHaveAccount">Al ingeschreven?</string>
+    <string name="delete">Verwiijder</string>
+    <string name="subscribe">Deelnemen</string>
+    <string name="unsubscribe">Uitschrijven</string>
+    <string name="logout">Uitloggen</string>
+    <string name="searchForEvents">Zoek een event</string>
+
+    <string name="submit">Doorgaan</string>
+    <string name="userUpdated">Gebruiker is gewijzigd</string>
+    <string name="userLogged">Gebruiker is ingelogd</string>
+    <string name="userRegistered">Gebruiker is ingeschreven</string>
+    <string name="userSubscribed">Deelgenomen aan dit event</string>
+    <string name="userUnsubscribed">"Uitgeschreven "</string>
+    <string name="notEmpty">Moet niet leeg zijn</string>
+    <string name="passwordGreater">Wachtwoord moet minimum uit 6 karakters bestaan</string>
+    <string name="passwordsNotMatch">Wachtwoord velden zijn niet gelijk</string>
+    <string name="eventCreated">Event is aangemaakt</string>
+    <string name="eventUpdated">Event is gewijzigd</string>
+    <string name="eventDeleted">Event is verwijderd</string>
+</resources>

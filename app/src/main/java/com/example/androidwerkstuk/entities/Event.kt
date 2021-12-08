@@ -8,6 +8,7 @@ import com.example.androidwerkstuk.converters.LocalDateTimeConverter
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
 
+
 @Entity(tableName = "events_table")
 data class Event(
     @PrimaryKey(autoGenerate = true) var eventId: Long = 0,
@@ -15,5 +16,9 @@ data class Event(
     var description: String,
     var beginDate: String,
     var endDate: String,
-    var emailCreator: String
+    var emailCreator: String,
+    var street: String,
+    var huisNr: Int,
+    var city: String,
+    var zipCode: Int,
                 )

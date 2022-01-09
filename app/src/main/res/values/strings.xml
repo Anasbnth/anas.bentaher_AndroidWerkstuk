@@ -8,6 +8,7 @@
     <string name="subscribe">Subscribe</string>
     <string name="unsubscribe">Unsubscribe</string>
     <string name="logout">Logout</string>
+    <string name="redirectToMaps">View in google maps</string>
 
 
     //User

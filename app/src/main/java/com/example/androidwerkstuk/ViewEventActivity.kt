@@ -1,8 +1,11 @@
 package com.example.androidwerkstuk
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -33,8 +36,9 @@ class ViewEventActivity : AppCompatActivity() {
     private lateinit var zipcode : TextView
     private lateinit var numberOfParticipants : TextView
     private lateinit var subscribeOrUnsubscribeBtn : Button
-    private lateinit var updateBtn : Button
-    private lateinit var deleteBtn : Button
+    private lateinit var redirectToMaps : Button
+    private var eventId : Long = 0
+
 
 
 
@@ -59,9 +63,7 @@ class ViewEventActivity : AppCompatActivity() {
         zipcode = findViewById<TextView>(R.id.textfield_zipcode_viewEvent)
         numberOfParticipants = findViewById<TextView>(R.id.textfield_numberOfParticpants_viewEvent)
         subscribeOrUnsubscribeBtn = findViewById<Button>(R.id.button_subscribeOrUnsubscribe_viewEvent)
-        updateBtn = findViewById<Button>(R.id.button_update_viewEvent)
-        deleteBtn = findViewById<Button>(R.id.button_delete_viewEvent)
-
+        redirectToMaps = findViewById<Button>(R.id.button_redirectToMaps)
 
 
 
@@ -74,7 +76,7 @@ class ViewEventActivity : AppCompatActivity() {
         huisNr.setText((intent.getIntExtra("huisNr",0)).toString())
         city.setText(intent.getStringExtra("city"))
         zipcode.setText((intent.getIntExtra("zipcode",0)).toString())
-        val eventId = intent.getLongExtra("eventID",0)
+        eventId = intent.getLongExtra("eventID",0)
 
 
 
@@ -100,35 +102,8 @@ class ViewEventActivity : AppCompatActivity() {
             }
         })
 
-        if(intent.getStringExtra("emailCreator").equals(auth.currentUser!!.email))
-        {
-            updateBtn.visibility = View.VISIBLE
-            deleteBtn.visibility = View.VISIBLE
-        }
 
-        updateBtn.setOnClickListener {
-            println(eventId)
-            val intent = Intent(this, UpdateEventActivity::class.java)
-            intent.putExtra("eventID",eventId)
-            intent.putExtra("title",title.text)
-            intent.putExtra("description",description.text)
-            intent.putExtra("beginDate",beginDate.text)
-            intent.putExtra("endDate",endDate.text)
-            intent.putExtra("street",street.text)
-            intent.putExtra("huisNr",huisNr.text.toString().toInt())
-            intent.putExtra("city",city.text)
-            intent.putExtra("zipcode",zipcode.text.toString().toInt())
-            intent.putExtra("emailCreator",creator.text)
-            startActivity(intent)
-        }
 
-        deleteBtn.setOnClickListener{
-            eventViewModel.deleteEvent(intent.getLongExtra("eventID",0))
-            this.finish()
-            Toast.makeText(this, R.string.eventDeleted, Toast.LENGTH_SHORT)
-                .show()
-
-        }
 
 
         subscribeOrUnsubscribeBtn.setOnClickListener {
@@ -156,6 +131,55 @@ class ViewEventActivity : AppCompatActivity() {
             }
 
         }
+
+        redirectToMaps.setOnClickListener {
+            val gmmIntentUri =
+                Uri.parse("geo:0,0?q="+street.text+" " + huisNr.text + "," + "Belgie," + city.text)
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(mapIntent)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        if(intent.getStringExtra("emailCreator").equals(auth.currentUser!!.email))
+        {
+            menuInflater.inflate(R.menu.menu,menu)
+        }
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+
+        when(item.itemId){
+            R.id.update_btn ->{
+                val intent = Intent(this, UpdateEventActivity::class.java)
+                intent.putExtra("eventID",eventId)
+                intent.putExtra("title",title.text)
+                intent.putExtra("description",description.text)
+                intent.putExtra("beginDate",beginDate.text)
+                intent.putExtra("endDate",endDate.text)
+                intent.putExtra("street",street.text)
+                intent.putExtra("huisNr",huisNr.text.toString().toInt())
+                intent.putExtra("city",city.text)
+                intent.putExtra("zipcode",zipcode.text.toString().toInt())
+                intent.putExtra("emailCreator",creator.text)
+                startActivity(intent)
+                return true
+            }
+            R.id.delete_btn ->{
+                eventViewModel.deleteEvent(intent.getLongExtra("eventID",0))
+                this.finish()
+                Toast.makeText(this, R.string.eventDeleted, Toast.LENGTH_SHORT)
+                    .show()
+                return true
+            }
+        }
+        return true
     }
 
 

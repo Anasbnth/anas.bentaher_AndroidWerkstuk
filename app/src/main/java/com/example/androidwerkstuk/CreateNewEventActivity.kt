@@ -36,6 +36,8 @@ class CreateNewEventActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_event)
 
+        supportActionBar?.hide()
+
         auth = FirebaseAuth.getInstance();
         eventViewModel = ViewModelProvider(this).get(EventViewModel::class.java)
 

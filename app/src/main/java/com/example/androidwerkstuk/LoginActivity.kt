@@ -30,6 +30,8 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_login)
 
+        supportActionBar?.hide()
+
         btnLogin = findViewById<Button>(R.id.button_login)
         goToRegisterButton = findViewById<Button>(R.id.button_goToRegisterPage)
         emailField = findViewById<EditText>(R.id.textfield_email_login)

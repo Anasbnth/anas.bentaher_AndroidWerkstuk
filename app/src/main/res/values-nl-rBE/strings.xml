@@ -43,4 +43,5 @@
     <string name="eventCreated">Event is aangemaakt</string>
     <string name="eventUpdated">Event is gewijzigd</string>
     <string name="eventDeleted">Event is verwijderd</string>
+    <string name="redirectToMaps">Zien in google maps</string>
 </resources>

@@ -21,14 +21,18 @@ import com.google.firebase.auth.FirebaseAuth
 import android.content.Intent.getIntent
 
 import android.content.Intent
+import androidx.fragment.app.activityViewModels
 import com.example.androidwerkstuk.LoginActivity
 import com.example.androidwerkstuk.MainActivity
 import com.example.androidwerkstuk.UpdateEventActivity
+import com.example.androidwerkstuk.ui.main.PageViewModel
+import com.example.androidwerkstuk.ui.main.PlaceholderFragment
 
 
 class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var userViewModel: UserViewModel
+
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
@@ -40,7 +44,9 @@ class ProfileFragment : Fragment() {
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
 
+
         val fragmentView: View = inflater.inflate(R.layout.fragment_profile,container,false)
+
 
         val username = fragmentView.findViewById<EditText>(R.id.textfield_username_profile)
         val email = fragmentView.findViewById<EditText>(R.id.textfield_email_profile)

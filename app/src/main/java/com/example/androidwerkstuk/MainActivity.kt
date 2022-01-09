@@ -5,9 +5,11 @@ import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
 import com.example.androidwerkstuk.ui.main.SectionsPagerAdapter
 import com.example.androidwerkstuk.databinding.ActivityMainBinding
+import com.example.androidwerkstuk.db.RoomDB
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -19,6 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar?.hide()
 
         auth = FirebaseAuth.getInstance();
 
@@ -43,12 +47,12 @@ class MainActivity : AppCompatActivity() {
 
             }
         }.attach()
-        val fab: FloatingActionButton = findViewById(R.id.button_redirect_createNewEvent)
 
-        fab.setOnClickListener {
-            startActivity(Intent(this, CreateNewEventActivity::class.java))
-            
-        }
+        val database = Room.inMemoryDatabaseBuilder(this, RoomDB::class.java).build()
+        val userDAO = database.userDao()
+
+
+
 
 
     }
@@ -59,6 +63,7 @@ class MainActivity : AppCompatActivity() {
 
 
         super.onStart()
+
 
 
         val currentUser: FirebaseUser? = auth.currentUser

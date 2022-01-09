@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tool:context=".ViewEventActivity"
+    android:padding="15dp"
     >
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -243,6 +252,14 @@
 
 
         <Button
+            android:id="@+id/button_redirectToMaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:backgroundTint="#dfc15e"
+            android:text="@string/redirectToMaps"  />
+
+        <Button
             android:id="@+id/button_subscribeOrUnsubscribe_viewEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -250,38 +267,13 @@
             android:backgroundTint="#dfc15e"
             android:text="@string/subscribe"  />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginBottom="20dp"
-            >
-
-            <Button
-                android:id="@+id/button_update_viewEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:backgroundTint="#dfc15e"
-                android:visibility="invisible"
-                android:text="@string/update"  />
-
-            <Button
-                android:id="@+id/button_delete_viewEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-
-                android:backgroundTint="#dfc15e"
-                android:text="@string/delete"  />
 
 
 
-        </LinearLayout>
 
 
 
 
     </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

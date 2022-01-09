@@ -9,11 +9,12 @@ import com.example.androidwerkstuk.entities.Event
 import com.example.androidwerkstuk.entities.SubscribedUserEventRelation
 import com.example.androidwerkstuk.entities.User
 
-@Database(entities = [User::class, Event::class,SubscribedUserEventRelation::class], version = 13, exportSchema = false)
+@Database(entities = [User::class, Event::class,SubscribedUserEventRelation::class], version = 14, exportSchema = false)
 public abstract class RoomDB : RoomDatabase() {
 
     abstract fun userDao(): UserDao
     abstract fun eventDao(): EventDao
+
 
 
     companion object {
@@ -30,7 +31,7 @@ public abstract class RoomDB : RoomDatabase() {
                     context.applicationContext,
                     RoomDB::class.java,
                     "room_db"
-                ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+                ).build()
                 INSTANCE = instance
                 // return instance
                 instance

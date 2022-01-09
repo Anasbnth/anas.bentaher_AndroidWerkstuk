@@ -32,6 +32,8 @@ class UpdateEventActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_event)
 
+        supportActionBar?.hide()
+
         eventViewModel = ViewModelProvider(this).get(EventViewModel::class.java)
 
         title = findViewById<EditText>(R.id.textfield_title_updateEvent)

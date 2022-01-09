@@ -31,6 +31,8 @@ class RegisterActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        supportActionBar?.hide()
+
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         btnRegister = findViewById<Button>(R.id.button_register)

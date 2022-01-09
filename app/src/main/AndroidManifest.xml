@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidWerkstuk.NoActionBar">
+        android:theme="@style/Theme.AndroidWerkstuk">
         <activity
             android:name=".UpdateEventActivity"
             android:exported="false" />
@@ -20,13 +20,14 @@
             android:exported="false" />
         <activity
             android:name=".ViewEventActivity"
+
             android:exported="false" />
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.AndroidWerkstuk.NoActionBar">
+            android:theme="@style/Theme.AndroidWerkstuk">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
